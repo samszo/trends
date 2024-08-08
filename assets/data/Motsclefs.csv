@@ -1,43 +1,17 @@
-traduction,motclef,langue,Keyword,
+Domaine,motclef,langue,Keyword,
 Abrasif de Sablage,Abrasif de Sablage,français,abrasif de sablage,VRAI
-Aerogommage,Abrasione a bassa pressione,italien,abrasione a bassa pressione,VRAI
-Sablage,Abrasive Blasting,anglais,abrasive blasting,VRAI
-Aerogommeuse,Abrasive Blasting Machine,anglais,abrasive blasting machine,VRAI
 Abrasif de Sablage,Abrasive Media,anglais,abrasive media,VRAI
-Aerogommage,Aérogomado,espagnol,aérogomado,VRAI
-Aerogommeuse,Aérogomadora ,espagnol,aérogomadora,FAUX
-Aerogommage,Aerogommage,français,aerogommage,VRAI
-Aerogommeuse,Aerogommeuse,français,aerogommeuse,VRAI
-Aerogommage,Aerogumowanie,polonais,aerogumowanie,VRAI
-Aerogommeuse,Aerogumownica,polonais,aerogumownica,VRAI
 Abrasif de Sablage,Aluminium Oxide,anglais,aluminium oxide,VRAI
 Abrasif de Sablage,Arena,espagnol,arena,VRAI
-Sablage,Arenado,espagnol,arenado,VRAI
-Sableuse,Arenadora,espagnol,arenadora,VRAI
-Sableuse,Arenadora a presión,espagnol,arenadora a presión,VRAI
 Abrasif de Sablage,Bicarbonato de Sodio,espagnol,bicarbonato de sodio,VRAI
 Abrasif de Sablage,Bicarbonato di Sodio,italien,bicarbonato di sodio,VRAI
 Abrasif de Sablage,Bille di Ceramica,italien,bille di ceramica,VRAI
-Sableuse,Blast Cabinet,anglais,blast cabinet,VRAI
-Sablage,Blast Cleaning,anglais,blast cleaning,VRAI
-Sableuse,Blast Pot ,anglais,blast pot,FAUX
-Sableuse,Blasting Machine,anglais,blasting machine,VRAI
-Sableuse,Cabina de chorro,espagnol,cabina de chorro,VRAI
-Sableuse,Cabina di sabbiatura,italien,cabina di sabbiatura,VRAI
 Abrasif de Sablage,Cáscaras de Nuez ,espagnol,cáscaras de nuez,FAUX
 Abrasif de Sablage,Ceramic Beads,anglais,ceramic beads,VRAI
-Sablage,Chorro abrasivo,espagnol,chorro abrasivo,VRAI
-Sablage,Chorro de arena,espagnol,chorro de arena,VRAI
-Aerogommage,Chorro de baja presión,espagnol,chorro de baja presión,VRAI
-Aerogommage,Chorro de vapor,espagnol,chorro de vapor,VRAI
 Abrasif de Sablage,Conchiglie di Noce,italien,conchiglie di noce,VRAI
 Abrasif de Sablage,Corindone ,italien,corindone,FAUX
-Sablage,Czyszczenie piaskiem,polonais,czyszczenie piaskiem,VRAI
-Sableuse,Druckstrahlgerät,allemand,druckstrahlgerät,VRAI
-Aerogommage,Dustless Blasting,anglais,dustless blasting,VRAI
 Abrasif de Sablage,Edelkorund,allemand,edelkorund,VRAI
 Abrasif de Sablage,Escoria,espagnol,escoria,VRAI
-Aerogommeuse,Feinstrahlgerät ,allemand,feinstrahlgerät,FAUX
 Abrasif de Sablage,Garnet,anglais,garnet,VRAI
 Abrasif de Sablage,Glasperlen,allemand,glasperlen,VRAI
 Abrasif de Sablage,Glass Beads,anglais,glass beads,VRAI
@@ -45,84 +19,110 @@ Abrasif de Sablage,Granat,polonais,granat,VRAI
 Abrasif de Sablage,Granate,espagnol,granate,VRAI
 Abrasif de Sablage,Granato,italien,granato,VRAI
 Abrasif de Sablage,Granatsand,allemand,granatsand,VRAI
-Sableuse,Kabina do piaskowania,polonais,kabina do piaskowania,VRAI
 Abrasif de Sablage,Keramikkugeln,allemand,keramikkugeln,VRAI
 Abrasif de Sablage,Kieselsäure,allemand,kieselsäure,VRAI
 Abrasif de Sablage,Korund,allemand,korund,VRAI
 Abrasif de Sablage,Kule ceramiczne,polonais,kule ceramiczne,VRAI
 Abrasif de Sablage,Kule szklane,polonais,kule szklane,VRAI
-Sablage,Lavorazione abrasiva,italien,lavorazione abrasiva,VRAI
-Sablage,Limpieza con chorro,espagnol,limpieza con chorro,VRAI
-Aerogommage,Low Pressure Blasting,anglais,low pressure blasting,VRAI
-Aerogommeuse,Low Pressure Blasting Machine,anglais,low pressure blasting machine,VRAI
-Aerogommeuse,Macchina per pulitura a vapore,italien,macchina per pulitura a vapore,VRAI
-Aerogommeuse,Macchina per sabbiatura,italien,macchina per sabbiatura,VRAI
-Sableuse,Macchina per sabbiatura,italien,macchina per sabbiatura,VRAI
-Aerogommeuse,Macchina per sabbiatura a bassa pressione ,italien,macchina per sabbiatura a bassa pressione,FAUX
-Sableuse,Máquina de chorro,espagnol,máquina de chorro,VRAI
-Aerogommeuse,Máquina de chorro a baja presión Máquina de microarenado,espagnol,máquina de chorro a baja presión máquina de microarenado,VRAI
-Aerogommeuse,Máquina de chorro de vapor,espagnol,máquina de chorro de vapor,VRAI
-Aerogommeuse,Maszyna do mikropiaskowania,polonais,maszyna do mikropiaskowania,VRAI
-Sableuse,Maszyna do piaskowania,polonais,maszyna do piaskowania,VRAI
-Aerogommeuse,Maszyna do piaskowania na mokro,polonais,maszyna do piaskowania na mokro,VRAI
-Aerogommeuse,Maszyna do piaskowania niskociśnieniowego,polonais,maszyna do piaskowania niskociśnieniowego,VRAI
 Abrasif de Sablage,Materiał ścierny,polonais,materiał ścierny,VRAI
 Abrasif de Sablage,Materiale Abrasivo ,italien,materiale abrasivo,FAUX
 Abrasif de Sablage,Medio Abrasivo,espagnol,medio abrasivo,VRAI
-Aerogommage,Micro-abrasive Blasting,anglais,micro abrasive blasting,FAUX
-Aerogommeuse,Micro-abrasive Blasting Machine,anglais,micro abrasive blasting machine,FAUX
-Aerogommeuse,Micro-sabbiatrice,italien,micro sabbiatrice,FAUX
-Aerogommage,Micro-sabbiatura,italien,micro sabbiatura,FAUX
-Aerogommage,Microarenado,espagnol,microarenado,VRAI
-Aerogommage,Mikropiaskowanie,polonais,mikropiaskowanie,VRAI
-Aerogommeuse,Niederdruck-Strahlgerät,allemand,niederdruck strahlgerät,FAUX
-Aerogommage,Niederdruck-Strahltechnik,allemand,niederdruck strahltechnik,FAUX
-Aerogommage,Niederdruck-Strahlverfahren,allemand,niederdruck strahlverfahren,FAUX
 Abrasif de Sablage,Nussschalengranulat,allemand,nussschalengranulat,VRAI
-Sablage,Obróbka ścierna,polonais,obróbka ścierna,VRAI
 Abrasif de Sablage,Óxido de Aluminio,espagnol,óxido de aluminio,VRAI
 Abrasif de Sablage,Perlas de Cerámica,espagnol,perlas de cerámica,VRAI
 Abrasif de Sablage,Perlas de Vidrio.,espagnol,perlas de vidrio,FAUX
 Abrasif de Sablage,Perle di Vetro,italien,perle di vetro,VRAI
 Abrasif de Sablage,Piasek,polonais,piasek,VRAI
-Sableuse,Piaskarka,polonais,piaskarka,VRAI
-Sableuse,Piaskarka ciśnieniowa,polonais,piaskarka ciśnieniowa,VRAI
-Sablage,Piaskowanie,polonais,piaskowanie,VRAI
-Aerogommage,Piaskowanie na mokro,polonais,piaskowanie na mokro,VRAI
-Aerogommage,Piaskowanie niskociśnieniowe,polonais,piaskowanie niskociśnieniowe,VRAI
-Sablage,Piaskowanie ścierne,polonais,piaskowanie ścierne,VRAI
-Sableuse,Pressure Blaster,anglais,pressure blaster,VRAI
-Sablage,Pressure Blasting,anglais,pressure blasting,VRAI
-Aerogommage,Pulitura a vapore ,italien,pulitura a vapore,FAUX
-Sablage,Pulizia a pressione,italien,pulizia a pressione,VRAI
-Sablage,Pulizia con sabbia,italien,pulizia con sabbia,VRAI
 Abrasif de Sablage,Sabbia,italien,sabbia,VRAI
-Sableuse,Sabbiatrice,italien,sabbiatrice,VRAI
-Sableuse,Sabbiatrice a pressione,italien,sabbiatrice a pressione,VRAI
-Sablage,Sabbiatura,italien,sabbiatura,VRAI
-Aerogommage,Sabbiatura a bassa pressione,italien,sabbiatura a bassa pressione,VRAI
-Sablage,Sablage,français,sablage,VRAI
-Sableuse,Sableuse,français,sableuse,VRAI
 Abrasif de Sablage,Sand,anglais,sand,VRAI
 Abrasif de Sablage,Sand,allemand,sand,VRAI
-Sableuse,Sandblaster,anglais,sandblaster,VRAI
-Sablage,Sandblasting,anglais,,FAUX
-Sablage,Sandstrahlen,allemand,sandstrahlen,VRAI
-Sablage,Sandstrahler,allemand,sandstrahler,VRAI
-Sableuse,Sandstrahlgerät,allemand,sandstrahlgerät,VRAI
 Abrasif de Sablage,Schlacke,allemand,schlacke,VRAI
 Abrasif de Sablage,Scoria,italien,scoria,VRAI
 Abrasif de Sablage,Skorupy orzechów,polonais,skorupy orzechów,VRAI
 Abrasif de Sablage,Slag,anglais,slag,VRAI
-Aerogommage,Soda blasting,anglais,soda blasting,VRAI
-Sableuse,Strahlanlage,allemand,strahlanlage,VRAI
-Sableuse,Strahlkabine,allemand,strahlkabine,VRAI
-Sableuse,Strahlmaschine,allemand,strahlmaschine,VRAI
 Abrasif de Sablage,Strahlmittel,allemand,strahlmittel,VRAI
 Abrasif de Sablage,Tlenek aluminium,polonais,tlenek aluminium,VRAI
-Aerogommeuse,Trockeneisstrahlgerät,allemand,trockeneisstrahlgerät,VRAI
-Aerogommage,Vapor Blasting,anglais,vapor blasting,VRAI
-Aerogommeuse,Vapor Blasting Machine,anglais,vapor blasting machine,VRAI
 Abrasif de Sablage,Walnut Shells,anglais,walnut shells,VRAI
 Abrasif de Sablage,Wodorowęglan sodu,polonais,wodorowęglan sodu,VRAI
 Abrasif de Sablage,Żużel,polonais,żużel,VRAI
+Aerogommage,Abrasione a bassa pressione,italien,abrasione a bassa pressione,VRAI
+Aerogommage,Aérogomado,espagnol,aérogomado,VRAI
+Aerogommage,Aerogommage,français,aerogommage,VRAI
+Aerogommage,Aerogumowanie,polonais,aerogumowanie,VRAI
+Aerogommage,Chorro de baja presión,espagnol,chorro de baja presión,VRAI
+Aerogommage,Chorro de vapor,espagnol,chorro de vapor,VRAI
+Aerogommage,Dustless Blasting,anglais,dustless blasting,VRAI
+Aerogommage,Low Pressure Blasting,anglais,low pressure blasting,VRAI
+Aerogommage,Micro-abrasive Blasting,anglais,micro abrasive blasting,FAUX
+Aerogommage,Micro-sabbiatura,italien,micro sabbiatura,FAUX
+Aerogommage,Microarenado,espagnol,microarenado,VRAI
+Aerogommage,Mikropiaskowanie,polonais,mikropiaskowanie,VRAI
+Aerogommage,Niederdruck-Strahltechnik,allemand,niederdruck strahltechnik,FAUX
+Aerogommage,Niederdruck-Strahlverfahren,allemand,niederdruck strahlverfahren,FAUX
+Aerogommage,Piaskowanie na mokro,polonais,piaskowanie na mokro,VRAI
+Aerogommage,Piaskowanie niskociśnieniowe,polonais,piaskowanie niskociśnieniowe,VRAI
+Aerogommage,Pulitura a vapore ,italien,pulitura a vapore,FAUX
+Aerogommage,Sabbiatura a bassa pressione,italien,sabbiatura a bassa pressione,VRAI
+Aerogommage,Soda blasting,anglais,soda blasting,VRAI
+Aerogommage,Vapor Blasting,anglais,vapor blasting,VRAI
+Aerogommeuse,Abrasive Blasting Machine,anglais,abrasive blasting machine,VRAI
+Aerogommeuse,Aérogomadora ,espagnol,aérogomadora,FAUX
+Aerogommeuse,Aerogommeuse,français,aerogommeuse,VRAI
+Aerogommeuse,Aerogumownica,polonais,aerogumownica,VRAI
+Aerogommeuse,Feinstrahlgerät ,allemand,feinstrahlgerät,FAUX
+Aerogommeuse,Low Pressure Blasting Machine,anglais,low pressure blasting machine,VRAI
+Aerogommeuse,Macchina per pulitura a vapore,italien,macchina per pulitura a vapore,VRAI
+Aerogommeuse,Macchina per sabbiatura,italien,macchina per sabbiatura,VRAI
+Aerogommeuse,Macchina per sabbiatura a bassa pressione ,italien,macchina per sabbiatura a bassa pressione,FAUX
+Aerogommeuse,Máquina de chorro a baja presión Máquina de microarenado,espagnol,máquina de chorro a baja presión máquina de microarenado,VRAI
+Aerogommeuse,Máquina de chorro de vapor,espagnol,máquina de chorro de vapor,VRAI
+Aerogommeuse,Maszyna do mikropiaskowania,polonais,maszyna do mikropiaskowania,VRAI
+Aerogommeuse,Maszyna do piaskowania na mokro,polonais,maszyna do piaskowania na mokro,VRAI
+Aerogommeuse,Maszyna do piaskowania niskociśnieniowego,polonais,maszyna do piaskowania niskociśnieniowego,VRAI
+Aerogommeuse,Micro-abrasive Blasting Machine,anglais,micro abrasive blasting machine,FAUX
+Aerogommeuse,Micro-sabbiatrice,italien,micro sabbiatrice,FAUX
+Aerogommeuse,Niederdruck-Strahlgerät,allemand,niederdruck strahlgerät,FAUX
+Aerogommeuse,Trockeneisstrahlgerät,allemand,trockeneisstrahlgerät,VRAI
+Aerogommeuse,Vapor Blasting Machine,anglais,vapor blasting machine,VRAI
+Sablage,Abrasive Blasting,anglais,abrasive blasting,VRAI
+Sablage,Arenado,espagnol,arenado,VRAI
+Sablage,Blast Cleaning,anglais,blast cleaning,VRAI
+Sablage,Chorro abrasivo,espagnol,chorro abrasivo,VRAI
+Sablage,Chorro de arena,espagnol,chorro de arena,VRAI
+Sablage,Czyszczenie piaskiem,polonais,czyszczenie piaskiem,VRAI
+Sablage,Lavorazione abrasiva,italien,lavorazione abrasiva,VRAI
+Sablage,Limpieza con chorro,espagnol,limpieza con chorro,VRAI
+Sablage,Obróbka ścierna,polonais,obróbka ścierna,VRAI
+Sablage,Piaskowanie,polonais,piaskowanie,VRAI
+Sablage,Piaskowanie ścierne,polonais,piaskowanie ścierne,VRAI
+Sablage,Pressure Blasting,anglais,pressure blasting,VRAI
+Sablage,Pulizia a pressione,italien,pulizia a pressione,VRAI
+Sablage,Pulizia con sabbia,italien,pulizia con sabbia,VRAI
+Sablage,Sabbiatura,italien,sabbiatura,VRAI
+Sablage,Sablage,français,sablage,VRAI
+Sablage,Sandblasting,anglais,sandblasting,FAUX
+Sablage,Sandstrahlen,allemand,sandstrahlen,VRAI
+Sablage,Sandstrahler,allemand,sandstrahler,VRAI
+Sableuse,Arenadora,espagnol,arenadora,VRAI
+Sableuse,Arenadora a presión,espagnol,arenadora a presión,VRAI
+Sableuse,Blast Cabinet,anglais,blast cabinet,VRAI
+Sableuse,Blast Pot ,anglais,blast pot,FAUX
+Sableuse,Blasting Machine,anglais,blasting machine,VRAI
+Sableuse,Cabina de chorro,espagnol,cabina de chorro,VRAI
+Sableuse,Cabina di sabbiatura,italien,cabina di sabbiatura,VRAI
+Sableuse,Druckstrahlgerät,allemand,druckstrahlgerät,VRAI
+Sableuse,Kabina do piaskowania,polonais,kabina do piaskowania,VRAI
+Sableuse,Macchina per sabbiatura,italien,macchina per sabbiatura,VRAI
+Sableuse,Máquina de chorro,espagnol,máquina de chorro,VRAI
+Sableuse,Maszyna do piaskowania,polonais,maszyna do piaskowania,VRAI
+Sableuse,Piaskarka,polonais,piaskarka,VRAI
+Sableuse,Piaskarka ciśnieniowa,polonais,piaskarka ciśnieniowa,VRAI
+Sableuse,Pressure Blaster,anglais,pressure blaster,VRAI
+Sableuse,Sabbiatrice,italien,sabbiatrice,VRAI
+Sableuse,Sabbiatrice a pressione,italien,sabbiatrice a pressione,VRAI
+Sableuse,Sableuse,français,sableuse,VRAI
+Sableuse,Sandblaster,anglais,sandblaster,VRAI
+Sableuse,Sandstrahlgerät,allemand,sandstrahlgerät,VRAI
+Sableuse,Strahlanlage,allemand,strahlanlage,VRAI
+Sableuse,Strahlkabine,allemand,strahlkabine,VRAI
+Sableuse,Strahlmaschine,allemand,strahlmaschine,VRAI
