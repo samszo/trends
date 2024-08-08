@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tendances des mots-clefs</title>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css" />
+    
+</head>
+<body>
+    <h1>Tendances des mots-clefs</h1>
+    <table>
+        <tr>
+            <td id="colGrid"></td>
+            <td id="colMap"></td>
+        </tr>
+    </table>
+</body>
+</html>
+
+<script>
+    // Set up the dimensions of the map
+    var width = 800;
+    var height = 600;
+
+    // Create an SVG element
+    var svg = d3.select("#colMap")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    // Create a projection for Europe
+    var projection = d3.geoMercator()
+        .center([10, 50])
+        .scale(600)
+        .translate([width / 2, height / 2]);
+    var dataPays;
+    // Create a path generator
+    var path = d3.geoPath()
+        .projection(projection);
+
+    // Load the JSON files
+    Promise.all([
+        d3.csv("assets/data/MotsClefsVolumes.csv"),
+        d3.json("assets/data/europe.geojson"),        
+        d3.json("assets/data/countries-FR.json")
+    ]).then(function(files) {
+        // Access the loaded data
+        var dataKW = files[0];
+        var dataGeo = files[1];
+        dataPays = files[2];
+        
+        // Group the data by keyword
+        var groupKeyword = d3.group(dataKW, d => d.Keyword),
+            groupPays = d3.group(dataKW, d => d.Pays);
+            
+        // Group the data by keyword and calculate the sum of monthly searches
+        var groupPaysSum = d3.rollups(dataKW, v => d3.sum(v, d => d["Avg. monthly searches"]), d => d.Pays)
+            .filter(d=>d[0]!='Tous');
+
+        // Calculate the extent of the sum of monthly searches
+        var extent = d3.extent(groupPaysSum,d=>d[1]);
+
+        // Create a color scale
+        var colorScale = d3.scaleSequential()
+            .domain(extent) // Set the domain of the scale
+            .interpolator(d3.interpolateReds); // Set the color interpolator
+        // Create a color axis
+
+        let cols =  [
+                    'Keyword',
+                    'Pays',
+                    'Avg. monthly searches',
+                    'Competition'
+                ],
+        container = document.createElement("div");
+        document.getElementById('colGrid').appendChild(container);
+        var hot = new Handsontable(container, {
+            data: dataKW,
+            width: (width+100)+'px',
+            height: height+'px',
+            rowHeaders: true,
+            colHeaders: cols,
+            columns: [
+                { data: "Keyword", type: "text" },
+                { data: "Pays", type: "text" },
+                { data: "Avg. monthly searches", type: "numeric" },
+                { data: "Competition", type: "text" },                
+            ],
+            licenseKey: 'non-commercial-and-evaluation',
+            filters: true,
+            dropdownMenu: true,
+            // enable the `MultiColumnSorting` plugin
+            multiColumnSorting: true,
+
+            // enable the `MultiColumnSorting` plugin with custom configuration
+            multiColumnSorting: {
+                // sort empty cells as well
+                sortEmptyCells: true,
+                // display the arrow icon in the column header
+                indicator: true,
+                // disable clicking on the column header to sort the column
+                headerAction: false,
+                // add a custom compare function
+                compareFunctionFactory(sortOrder, columnMeta) {
+                    return function(value, nextValue) {
+                    // some value comparisons which will return -1, 0 or 1...
+                    }
+                }
+            },
+
+            // enable the `MultiColumnSorting` plugin
+            multiColumnSorting: {
+                // at initialization, sort column 1 in ascending order
+                initialConfig: {
+                    column: 1,
+                    sortOrder: 'asc'
+                },
+                // at initialization, sort column 2 in descending order
+                initialConfig: {
+                    column: 2,
+                    sortOrder: 'desc'
+                }
+            }            
+        });
+        hot.addHook('afterSelectionEnd', (row, col, row2, col2) => {
+            // Get the selected range
+            var selectedRange = hot.getSelectedRange();
+            if (selectedRange.length) {
+                selectedRange = selectedRange[0];
+                // Get the start and end coordinates of the range
+                let startRow = selectedRange.from.row,
+                    startCol = selectedRange.from.col,
+                    endRow = selectedRange.to.row,
+                    endCol = selectedRange.to.col,
+                    sltData=[], sltDataRow={};
+
+                // Perform operations on the selected range            
+                for (var row = startRow; row <= endRow; row++) {
+                    sltDataRow={};
+                    //on boucle sur toute les colonnes
+                    cols.forEach((c,i)=>{
+                        sltDataRow[c]=hot.getDataAtCell(row, i);
+                    })
+                    if(sltDataRow.Pays)sltData.push(sltDataRow);
+                }
+                updateMapColor(sltData); 
+            }
+        });
+
+        // Convert the TopoJSON data to GeoJSON
+        //var europe = topojson.feature(dataGeo, dataGeo.objects.countries);
+        var europe = dataGeo;
+        
+        // Draw the map
+        svg.selectAll("path")
+            .data(europe.features)
+            .enter()
+            .append("path")
+            .attr("class", "pPays")
+            .attr("d", path)
+            .style("fill", function (d) {
+                // Replace this with your own data and color scale
+                let pays = groupPaysSum.filter(p=>p[0]==dataPays[d.properties.ISO2]),
+                color = pays.length ? colorScale(pays[0][1]) : "steelblue";
+                return color;
+            });
+
+        addColorLegend(colorScale)            
+
+    }).catch(function(error) {
+        console.log("Error loading JSON files:", error);
+    });
+
+    function updateMapColor(data) {
+        // Group the data by keyword and calculate the sum of monthly searches
+        var groupPaysSum = d3.rollups(data, v => d3.sum(v, d => d["Avg. monthly searches"]), d => d.Pays);
+
+        // Calculate the extent of the sum of monthly searches
+        var extent = d3.extent(groupPaysSum,d=>d[1]);
+
+        // Create a color scale
+        var colorScale = d3.scaleSequential()
+            .domain(extent) // Set the domain of the scale
+            .interpolator(d3.interpolateReds); // Set the color interpolator
+
+        svg.selectAll(".pPays").style("fill",(d,i)=>{
+            // Replace this with your own data and color scale
+            let pays = groupPaysSum.filter(p=>p[0]==dataPays[d.properties.ISO2]),
+            color = pays.length ? colorScale(pays[0][1]) : "steelblue";
+            return color;
+        });
+
+        addColorLegend(colorScale)
+    }
+
+
+
+    function addColorLegend(scaleColor) {
+        svg.select('#gColorlegend').remove();
+        let legendCellSize = 20, nbRect=20 
+            legend = svg.append('g').attr('id','gColorlegend')
+                .attr('transform', 'translate(0, '+(height-legendCellSize)+')'),
+            domainColor = scaleColor.domain(),
+            dataLegend = d3.range(domainColor[0],domainColor[1],(domainColor[1]-domainColor[0])/nbRect),
+            scaleLegend= d3.scaleBand(dataLegend, [0, width]).paddingInner(0);
+            
+        legend.selectAll('rect')
+            .data(dataLegend)
+            .enter().append('rect')
+                .attr('height', legendCellSize + 'px')
+                .attr('width', scaleLegend.bandwidth() + 'px')
+                .attr('y', 0)
+                .attr('x', d => {
+                    return scaleLegend(d);
+                })
+                .attr('class', 'legend-cell')
+                .style("fill", d => scaleColor(d))
+                /*
+                .on("mouseover", function(event, d) {
+                    legend.select("#cursor")
+                        .attr('transform', 'translate(' + (legendCellSize + 5) + ', ' + (d * legendCellSize) + ')')
+                        .style("display", null);
+                    d3.selectAll("path[scorecolor='" + colors[d] + "']")
+                        .style('fill', "#F1F501");
+                })
+                .on("mouseout", function(event, d) {
+                    legend.select("#cursor")
+                        .style("display", "none");
+                    d3.selectAll("path[scorecolor='" + colors[d] + "']")
+                        .style('fill', colors[d]);
+                })
+                */;
+        
+        legendAxis = legend.append("g")
+            .attr("class", "axis")
+            .call(d3.axisTop(scaleLegend).ticks(10).tickFormat(d3.format(".2s")));
+        
+        return legend;
+    }    
+
+</script>
