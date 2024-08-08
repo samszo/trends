@@ -22,43 +22,56 @@
 
 <script>
     // Set up the dimensions of the map
-    var width = 800;
-    var height = 600;
+    let width = 800, height = 600, noColor="#4682b469",
 
     // Create an SVG element
-    var svg = d3.select("#colMap")
+    svg = d3.select("#colMap")
         .append("svg")
         .attr("width", width)
-        .attr("height", height);
+        .attr("height", height),
 
     // Create a projection for Europe
-    var projection = d3.geoMercator()
+    projection = d3.geoMercator()
         .center([10, 50])
         .scale(600)
-        .translate([width / 2, height / 2]);
-    var dataPays;
+        .translate([width / 2, height / 2]),
     // Create a path generator
-    var path = d3.geoPath()
-        .projection(projection);
-
+    path = d3.geoPath()
+        .projection(projection),
+    dataPays, dataKW=[], dataMotclefs, dataGeo, 
+    arrAdsFiles = [
+        {'pays':'France','path':'assets/data/ads/Keyword Stats 2024-08-08 at 08_07_29-france.csv'},
+        {'pays':'Pologne','path':'assets/data/ads/Keyword Stats 2024-08-08 at 08_11_13-pologne.csv'},
+        {'pays':'Allemagne','path':'assets/data/ads/Keyword Stats 2024-08-08 at 08_09_31-Allemagne.csv'},
+        {'pays':'Italie','path':'assets/data/ads/Keyword Stats 2024-08-08 at 08_09_59-italie.csv'},
+        {'pays':'Espagne','path':'assets/data/ads/Keyword Stats 2024-08-08 at 08_10_51-espagne.csv'},
+        {'pays':'Royaume-Uni','path':'assets/data/ads/Keyword Stats 2024-08-08 at 08_10_24-royaumeuni.csv'}
+    ], arrPromise = arrAdsFiles.map(f=>d3.csv(f.path));    
+    arrPromise.push(d3.csv("assets/data/Motsclefs.csv"));
+    arrPromise.push(d3.json("assets/data/europe.geojson"));
+    arrPromise.push(d3.json("assets/data/countries-FR.json"));
+        
     // Load the JSON files
-    Promise.all([
-        d3.csv("assets/data/MotsClefsVolumes.csv"),
-        d3.json("assets/data/europe.geojson"),        
-        d3.json("assets/data/countries-FR.json")
-    ]).then(function(files) {
+    Promise.all(arrPromise).then(function(files) {
+        dataMotclefs = files[arrAdsFiles.length];
+        dataGeo = files[arrAdsFiles.length+1];
+        dataPays = files[arrAdsFiles.length+2];
         // Access the loaded data
-        var dataKW = files[0];
-        var dataGeo = files[1];
-        dataPays = files[2];
+        arrAdsFiles.forEach((af,i)=>{
+            files[i].forEach(df=>{
+                df.Pays=af.pays;
+                let mc = dataMotclefs.filter(m=>m.Keyword==df.Keyword);
+                df.Domaine=mc.length ? mc[0].Domaine : "aucun";
+                dataKW.push(df);
+            })
+        })        
         
         // Group the data by keyword
         var groupKeyword = d3.group(dataKW, d => d.Keyword),
             groupPays = d3.group(dataKW, d => d.Pays);
             
         // Group the data by keyword and calculate the sum of monthly searches
-        var groupPaysSum = d3.rollups(dataKW, v => d3.sum(v, d => d["Avg. monthly searches"]), d => d.Pays)
-            .filter(d=>d[0]!='Tous');
+        var groupPaysSum = d3.rollups(dataKW, v => d3.sum(v, d => d["Avg. monthly searches"]), d => d.Pays);
 
         // Calculate the extent of the sum of monthly searches
         var extent = d3.extent(groupPaysSum,d=>d[1]);
@@ -70,6 +83,7 @@
         // Create a color axis
 
         let cols =  [
+                    'Domaine',
                     'Keyword',
                     'Pays',
                     'Avg. monthly searches',
@@ -84,6 +98,7 @@
             rowHeaders: true,
             colHeaders: cols,
             columns: [
+                { data: "Domaine", type: "text" },
                 { data: "Keyword", type: "text" },
                 { data: "Pays", type: "text" },
                 { data: "Avg. monthly searches", type: "numeric" },
@@ -92,38 +107,7 @@
             licenseKey: 'non-commercial-and-evaluation',
             filters: true,
             dropdownMenu: true,
-            // enable the `MultiColumnSorting` plugin
             multiColumnSorting: true,
-
-            // enable the `MultiColumnSorting` plugin with custom configuration
-            multiColumnSorting: {
-                // sort empty cells as well
-                sortEmptyCells: true,
-                // display the arrow icon in the column header
-                indicator: true,
-                // disable clicking on the column header to sort the column
-                headerAction: false,
-                // add a custom compare function
-                compareFunctionFactory(sortOrder, columnMeta) {
-                    return function(value, nextValue) {
-                    // some value comparisons which will return -1, 0 or 1...
-                    }
-                }
-            },
-
-            // enable the `MultiColumnSorting` plugin
-            multiColumnSorting: {
-                // at initialization, sort column 1 in ascending order
-                initialConfig: {
-                    column: 1,
-                    sortOrder: 'asc'
-                },
-                // at initialization, sort column 2 in descending order
-                initialConfig: {
-                    column: 2,
-                    sortOrder: 'desc'
-                }
-            }            
         });
         hot.addHook('afterSelectionEnd', (row, col, row2, col2) => {
             // Get the selected range
@@ -164,7 +148,7 @@
             .style("fill", function (d) {
                 // Replace this with your own data and color scale
                 let pays = groupPaysSum.filter(p=>p[0]==dataPays[d.properties.ISO2]),
-                color = pays.length ? colorScale(pays[0][1]) : "steelblue";
+                color = pays.length ? colorScale(pays[0][1]) : noColor;
                 return color;
             });
 
