@@ -62,6 +62,7 @@
                 df.Pays=af.pays;
                 let mc = dataMotclefs.filter(m=>m.Keyword==df.Keyword);
                 df.Domaine=mc.length ? mc[0].Domaine : "aucun";
+                df.langue=mc.length ? mc[0].langue : "aucun"
                 dataKW.push(df);
             })
         })        
@@ -85,6 +86,7 @@
         let cols =  [
                     'Domaine',
                     'Keyword',
+                    'Langue',
                     'Pays',
                     'Avg. monthly searches',
                     'Competition'
@@ -100,6 +102,7 @@
             columns: [
                 { data: "Domaine", type: "text" },
                 { data: "Keyword", type: "text" },
+                { data: "langue", type: "text" },
                 { data: "Pays", type: "text" },
                 { data: "Avg. monthly searches", type: "numeric" },
                 { data: "Competition", type: "text" },                
